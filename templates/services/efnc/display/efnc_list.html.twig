@@ -22,7 +22,11 @@
 
 							<div
 								class="d-flex justify-content-between align-items-center"
-								style="display: flex;">
+								{% if EFNC.riskWeighting is not null %} {% if EFNC.riskWeighting.riskPriorityIndex > 300 %} style="display: flex; background-color: #ffcccb;"
+								{% elseif EFNC.riskWeighting.riskPriorityIndex > 100 %} style="display: flex;background-color: #ffeda6;"
+								{% else %} style="display: flex; background-color: #c8f7c5;"
+								{% endif %} style="display: flex;"
+								{% endif %}>
 								<div
 									style="flex: 1; text-align: center;">
 									{{ EFNC.Title|upper|split('_')|first }}
